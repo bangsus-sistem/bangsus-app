@@ -17,6 +17,7 @@ class Kernel
              * String Blueprint.
              */
             'code' => Database\Blueprints\Strings\CodeBlueprint::class,
+            'name' => Database\Blueprints\Strings\NameBlueprint::class,
         ]
     ];
 }
