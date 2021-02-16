@@ -23,6 +23,7 @@ class Kernel
              * Foreign blueprints.
              */
             'role' => Database\Blueprints\Strings\RoleBlueprint::class,
+            'user' => Database\Blueprints\Strings\UserBlueprint::class,
 
             /**
              * String Blueprints.
