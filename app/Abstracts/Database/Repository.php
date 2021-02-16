@@ -15,4 +15,13 @@ abstract class Repository
     {
         return DB::transaction($closure);
     }
+
+    /**
+     * @param  array  $data
+     * @return Object
+     */
+    protected function objectify(array $data)
+    {
+        return (object) $data;
+    }
 }
