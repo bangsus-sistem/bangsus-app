@@ -41,12 +41,12 @@ class RouteServiceProvider extends ServiceProvider
             Route::prefix('ajax')
                 ->middleware('ajax')
                 ->namespace($this->namespace.'\Ajax')
-                ->group(base_path('routes/ajax.php'));
+                ->group(base_path('routes/ajax/index.php'));
 
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace.'\Api')
-                ->group(base_path('routes/api.php'));
+                ->group(base_path('routes/api/index.php'));
 
             Route::middleware('web')
                 ->namespace($this->namespace.'\Web')
