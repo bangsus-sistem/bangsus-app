@@ -6,10 +6,20 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Database\Models\Concerns\Relations\{
+    HasRole,
+    HasUserTimestamps,
+    HasUserDelete,
+};
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    use SoftDeletes;
+
+    use HasRole, HasUserTimestamps, HasUserDelete;
 
     /**
      * The attributes that are mass assignable.
@@ -40,4 +50,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\HasMany
+     */
+    public function authenticationTokens()
+    {
+        return $this->hasMany(\App\Database\Models\Auth\AuthenticationToken);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\HasMany
+     */
+    public function authenticationLogs()
+    {
+        return $this->hasMany(\App\Database\Models\Logs\AuthenticationLog);
+    }
 }
