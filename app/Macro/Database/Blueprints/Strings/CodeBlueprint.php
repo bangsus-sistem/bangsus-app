@@ -14,7 +14,7 @@ class CodeBlueprint implements BlueprintContract
     {
         return (
             function () {
-                return $this->string('code')->unique();
+                return $this->string('code', 100)->unique();
             }
         );
     }
