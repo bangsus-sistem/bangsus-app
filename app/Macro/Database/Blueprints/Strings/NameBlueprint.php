@@ -14,7 +14,7 @@ class NameBlueprint implements BlueprintContract
     {
         return (
             function () {
-                return $this->string('name', 200)->unique();
+                return $this->string('name', 200);
             }
         );
     }

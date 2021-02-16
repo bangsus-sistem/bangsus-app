@@ -14,7 +14,7 @@ class NoteBlueprint implements BlueprintContract
     {
         return (
             function () {
-                return $this->string('note', 1000)->unique();
+                return $this->string('note', 1000);
             }
         );
     }
