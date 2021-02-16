@@ -38,6 +38,7 @@ class Kernel
             'name' => Database\Blueprints\Strings\NameBlueprint::class,
             'note' => Database\Blueprints\Strings\NoteBlueprint::class,
             'password' => Database\Blueprints\Strings\PasswordBlueprint::class,
+            'token' => Database\Blueprints\Strings\TokenBlueprint::class,
             'username' => Database\Blueprints\Strings\UsernameBlueprint::class,
         ]
     ];
