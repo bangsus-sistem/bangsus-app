@@ -44,6 +44,7 @@ class Kernel
             /**
              * Timestamp Blueprints.
              */
+            'expiredAt' => Database\Blueprints\Timestamps\ExpiredAtBlueprint::class,
             'usedAt' => Database\Blueprints\Timestamps\UsedAtBlueprint::class,
         ]
     ];
