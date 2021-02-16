@@ -23,6 +23,7 @@ class Kernel
              * String Blueprints.
              */
             'code' => Database\Blueprints\Strings\CodeBlueprint::class,
+            'fullName' => Database\Blueprints\Strings\FullNameBlueprint::class,
             'name' => Database\Blueprints\Strings\NameBlueprint::class,
             'note' => Database\Blueprints\Strings\NoteBlueprint::class,
             'password' => Database\Blueprints\Strings\PasswordBlueprint::class,
