@@ -18,6 +18,7 @@ class Kernel
              * Boolean blueprints.
              */
             'active' => Database\Blueprints\Booleans\ActiveBlueprint::class,
+            'state' => Database\Blueprints\Booleans\StateBlueprint::class,
 
             /**
              * Foreign blueprints.
