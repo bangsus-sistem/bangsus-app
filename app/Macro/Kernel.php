@@ -23,12 +23,12 @@ class Kernel
             /**
              * Foreign Blueprints.
              */
-            'role' => Database\Blueprints\Strings\RoleBlueprint::class,
-            'user' => Database\Blueprints\Strings\UserBlueprint::class,
-            'userCreate' => Database\Blueprints\Strings\UserCreateBlueprint::class,
-            'userDelete' => Database\Blueprints\Strings\UserDeleteBlueprint::class,
-            'userTimestamps' => Database\Blueprints\Strings\UserTimestampsBlueprint::class,
-            'userUpdate' => Database\Blueprints\Strings\UserUpdateBlueprint::class,
+            'role' => Database\Blueprints\Foreigns\RoleBlueprint::class,
+            'user' => Database\Blueprints\Foreigns\UserBlueprint::class,
+            'userCreate' => Database\Blueprints\Foreigns\UserCreateBlueprint::class,
+            'userDelete' => Database\Blueprints\Foreigns\UserDeleteBlueprint::class,
+            'userTimestamps' => Database\Blueprints\Foreigns\UserTimestampsBlueprint::class,
+            'userUpdate' => Database\Blueprints\Foreigns\UserUpdateBlueprint::class,
 
             /**
              * String Blueprints.
