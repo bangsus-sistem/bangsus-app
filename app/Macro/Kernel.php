@@ -15,13 +15,13 @@ class Kernel
         'blueprints' => [
 
             /**
-             * Boolean blueprints.
+             * Boolean Blueprints.
              */
             'active' => Database\Blueprints\Booleans\ActiveBlueprint::class,
             'state' => Database\Blueprints\Booleans\StateBlueprint::class,
 
             /**
-             * Foreign blueprints.
+             * Foreign Blueprints.
              */
             'role' => Database\Blueprints\Strings\RoleBlueprint::class,
             'user' => Database\Blueprints\Strings\UserBlueprint::class,
@@ -40,6 +40,11 @@ class Kernel
             'password' => Database\Blueprints\Strings\PasswordBlueprint::class,
             'token' => Database\Blueprints\Strings\TokenBlueprint::class,
             'username' => Database\Blueprints\Strings\UsernameBlueprint::class,
+
+            /**
+             * Timestamp Blueprints.
+             */
+            'usedAt' => Database\Blueprints\Timestamps\UsedAtBlueprint::class,
         ]
     ];
 }
