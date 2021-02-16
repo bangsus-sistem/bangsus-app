@@ -26,6 +26,7 @@ class Kernel
             'user' => Database\Blueprints\Strings\UserBlueprint::class,
             'userCreate' => Database\Blueprints\Strings\UserCreateBlueprint::class,
             'userDelete' => Database\Blueprints\Strings\UserDeleteBlueprint::class,
+            'userTimestamps' => Database\Blueprints\Strings\UserTimestampsBlueprint::class,
 
             /**
              * String Blueprints.
