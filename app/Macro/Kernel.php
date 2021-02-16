@@ -13,7 +13,10 @@ class Kernel
          * Blueprints.
          */
         'blueprints' => [
-            
+            /**
+             * String Blueprint.
+             */
+            'code' => Database\Blueprints\Strings\CodeBlueprint::class,
         ]
     ];
 }
