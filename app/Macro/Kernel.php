@@ -13,8 +13,14 @@ class Kernel
          * Blueprints.
          */
         'blueprints' => [
+
             /**
-             * String Blueprint.
+             * Boolean blueprints.
+             */
+            'active' => Database\Blueprints\Booleans\ActiveBlueprint::class,
+
+            /**
+             * String Blueprints.
              */
             'code' => Database\Blueprints\Strings\CodeBlueprint::class,
             'name' => Database\Blueprints\Strings\NameBlueprint::class,
