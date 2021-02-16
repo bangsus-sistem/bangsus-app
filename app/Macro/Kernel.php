@@ -24,6 +24,7 @@ class Kernel
              */
             'role' => Database\Blueprints\Strings\RoleBlueprint::class,
             'user' => Database\Blueprints\Strings\UserBlueprint::class,
+            'userCreate' => Database\Blueprints\Strings\UserCreateBlueprint::class,
 
             /**
              * String Blueprints.
