@@ -20,6 +20,11 @@ class Kernel
             'active' => Database\Blueprints\Booleans\ActiveBlueprint::class,
 
             /**
+             * Foreign blueprints.
+             */
+            'role' => Database\Blueprints\Strings\RoleBlueprint::class,
+
+            /**
              * String Blueprints.
              */
             'code' => Database\Blueprints\Strings\CodeBlueprint::class,
