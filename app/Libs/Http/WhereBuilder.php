@@ -169,7 +169,7 @@ class WhereBuilder
      * 
      * @return array
      */
-    public function doneBuilding()
+    public function done()
     {
         return $this->toArray();
     }
