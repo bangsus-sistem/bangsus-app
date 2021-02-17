@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Libs\Database;
+namespace App\Libs\Http;
 
 class WhereBuilder
 {
