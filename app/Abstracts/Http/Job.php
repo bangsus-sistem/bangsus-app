@@ -8,10 +8,9 @@ abstract class Job
 {
     /**
      * @param  \Illuminate\Http\Requests  $request
-     * @param  ...  $args
      * @return mixed
      */
-    abstract public function handle($request, ...$args);
+    abstract public function handle($request);
     
     /**
      * Instantiate new Where Builder class.
