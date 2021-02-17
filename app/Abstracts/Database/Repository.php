@@ -4,6 +4,7 @@ namespace App\Abstracts\Database;
 
 use Closure;
 use Illuminate\Support\Facades\DB;
+use App\Libs\Database\WhereBuilder;
 
 abstract class Repository
 {
@@ -23,5 +24,15 @@ abstract class Repository
     protected function objectify(array $data)
     {
         return (object) $data;
+    }
+    
+    /**
+     * Instantiate new Where Builder class.
+     * 
+     * @return \App\Libs\Database\WhereBuilder
+     */
+    protected function buildWhere()
+    {
+        return new WhereBuilder;
     }
 }
