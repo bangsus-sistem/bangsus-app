@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Abstracts\Http;
+namespace App\Utils\Database;
 
 class WhereBuilder
 {
@@ -36,7 +36,7 @@ class WhereBuilder
      * Set the request.
      * 
      * @param  \Illuminate\Http\Request  $request
-     * @return \App\Abstracts\Http\WhereBuilder
+     * @return \App\Utils\Database\WhereBuilder
      */
     public function with($request)
     {
@@ -49,7 +49,7 @@ class WhereBuilder
      * Set the index to be built.
      * 
      * @param  string  $index
-     * @return \App\Abstracts\Http\WhereBuilder
+     * @return \App\Utils\Database\WhereBuilder
      */
     public function index($index)
     {
@@ -63,7 +63,7 @@ class WhereBuilder
      * Set the column to be built
      * 
      * @param  string  $column
-     * @return \App\Abstracts\Http\WhereBuilder
+     * @return \App\Utils\Database\WhereBuilder
      */
     public function column($column)
     {
@@ -77,7 +77,7 @@ class WhereBuilder
      * 
      * @param  string  $mode
      * @param  array   $args
-     * @return \App\Abstracts\Http\WhereBuilder
+     * @return \App\Utils\Database\WhereBuilder
      */
     public function mode($mode, $args = [])
     {
