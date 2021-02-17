@@ -13,11 +13,12 @@ abstract class Controller extends BaseController
 
     /**
      * @param  \App\Abstracts\Http\Job  $job
+     * @param  \Illuminate\Http\Request  $request
      * @param  ...  $args
      * @return mixed
      */
-    protected function dispatch(Job $job, ...$args)
+    protected function dispatch(Job $job, $request, ...$args)
     {
-        return $job->handle(...$args);
+        return $job->handle($request, ...$args);
     }
 }
