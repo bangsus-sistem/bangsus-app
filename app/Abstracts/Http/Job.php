@@ -2,7 +2,7 @@
 
 namespace App\Abstracts\Http;
 
-use App\Abstracts\Http\WhereBuilder;
+use App\Utils\Database\WhereBuilder;
 
 abstract class Job
 {
@@ -15,7 +15,7 @@ abstract class Job
     /**
      * Instantiate new Where Builder class.
      * 
-     * @return \App\Abstracts\Http\WhereBuilder
+     * @return \App\Utils\Database\WhereBuilder
      */
     protected function buildWhere()
     {
