@@ -1,0 +1,16 @@
+.flasher-desktop-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: $flasher-desktop-wrapper-width;
+    margin: $flasher-desktop-wrapper-margin;
+    z-index: $flasher-desktop-wrapper-z-index;
+}
+
+.flasher-mobile-wrapper {
+    position: fixed;
+    top: $flasher-mobile-wrapper-top;
+    left: 0;
+    width: $flasher-mobile-wrapper-width;
+    z-index: $flasher-desktop-wrapper-z-index;
+}
