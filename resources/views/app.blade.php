@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bangsus App</title>
-    <link rel="stylesheet" href="/css/app.css?version={{ $version['bangsus_app'] }}">
+    <link rel="stylesheet" href="/css/app.css?version={{ $version['app'] }}">
 </head>
 <body>
     <div id="app">
         <app
-            bangsus-app-version="{{ $version['bangsus_app'] }}"
+            bangsus-app-version="{{ $version['app'] }}"
             laravel-version="{{ $version['laravel'] }}"
             php-version="{{ $version['php'] }}"
         />
     </div>
-    <script src="/js/app.js?version={{ $version['bangsus_app'] }}" defer></script>
+    <script src="/js/app.js?version={{ $version['app'] }}" defer></script>
 </body>
 </html>
