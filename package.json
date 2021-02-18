@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.2",
         "vue-fragment": "^1.5.1",
         "vue-mobile-detection": "^1.0.0",
         "vue-router": "^3.5.1",
