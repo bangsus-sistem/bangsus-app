@@ -62,7 +62,7 @@ class RoleController extends Controller
     public function store(StoreRequest $request)
     {
         return $this->buildJsonResponse()
-            ->success($this->dispatch(new StoreJob, $request));
+            ->created($this->dispatch(new StoreJob, $request));
     }
 
     /**
@@ -101,7 +101,6 @@ class RoleController extends Controller
      */
     public function destroy(DestroyRequest $request)
     {
-        return $this->buildJsonResponse()
-            ->success($this->dispatch(new DestroyJob, $request));
+        return $this->buildJsonResponse()->noContent();
     }
 }
