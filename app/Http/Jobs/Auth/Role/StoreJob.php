@@ -21,6 +21,7 @@ class StoreJob extends Job
                 'name' => $request->input('name'),
                 'active' => $request->boolean('active', true),
                 'note' => $request->input('note', ''),
+                'feature_ids' => $request->input('feature_ids', []),
             ])
         );
     }
