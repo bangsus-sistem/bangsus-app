@@ -18,6 +18,7 @@ class UserSingleResource extends SingleResource
             'full_name' => $this->full_name,
             'active' => $this->active,
             'role' => new RoleSingleResource($this->role),
+            'note' => $this->note,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
