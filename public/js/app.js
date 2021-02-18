@@ -1864,7 +1864,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
-    bangsusAppVersion: {
+    appVersion: {
       type: String,
       required: true
     },
@@ -1878,8 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    bangsusAppVersionComputed: function bangsusAppVersionComputed() {
-      return 'v' + this.bangsusAppVersion;
+    appVersionComputed: function appVersionComputed() {
+      return 'v' + this.appVersion;
     },
     laravelVersionComputed: function laravelVersionComputed() {
       return 'v' + this.laravelVersion;
@@ -41906,7 +41906,7 @@ var render = function() {
       _c("router-view"),
       _vm._v(" "),
       _c("div", { staticClass: "app-version-wrapper" }, [
-        _vm._v("\n        " + _vm._s(_vm.bangsusAppVersionComputed) + "\n    ")
+        _vm._v("\n        " + _vm._s(_vm.appVersionComputed) + "\n    ")
       ]),
       _vm._v(" "),
       _c(
