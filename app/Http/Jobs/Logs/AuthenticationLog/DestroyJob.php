@@ -15,6 +15,12 @@ class DestroyJob extends Job
      */
     public function handle(DestroyRequest $request)
     {
-        RoleRepository::destroy($request->input('id'));
+        if ($request->input('bulk')) {
+            foreach ($request->input('selected_ids') as $id) {
+                AuthenticationLogRepository::destroy($id);
+            }
+        } else {
+            AuthenticationLogRepository::destroy($request->input('id'));
+        }
     }
 }
