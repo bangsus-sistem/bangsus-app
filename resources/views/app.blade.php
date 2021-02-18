@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <app
-            bangsus-app-version="{{ $version['app'] }}"
+            app-version="{{ $version['app'] }}"
             laravel-version="{{ $version['laravel'] }}"
             php-version="{{ $version['php'] }}"
         />
