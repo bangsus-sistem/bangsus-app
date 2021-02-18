@@ -2,7 +2,6 @@
 
 namespace App\Abstracts\Http;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Auth\Access\AuthorizationException;
 use App\Auth\Permission;
 
