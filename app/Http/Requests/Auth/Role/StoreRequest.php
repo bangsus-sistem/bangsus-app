@@ -39,6 +39,14 @@ class StoreRequest extends AuthorizedFormRequest
                 'nullable',
                 'max:1000',
             ],
+            'feature_ids' => [
+                'required',
+                'array',
+            ],
+            'feature_ids.*' => [
+                'required',
+                'bsb_exists:auth.feature',
+            ],
         ];
     }
 }
