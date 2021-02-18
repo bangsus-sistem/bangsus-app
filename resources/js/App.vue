@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <router-view />
         <div class="app-version-wrapper">
-            {{ bangsusAppVersionComputed }}
+            {{ appVersionComputed }}
         </div>
         <div class="screen-mode-wrapper">
             <template v-if="$isMobile()">
@@ -18,7 +18,7 @@
 <script>
 export default {
     props: {
-        bangsusAppVersion: {
+        appVersion: {
             type: String,
             required: true,
         },
@@ -32,8 +32,8 @@ export default {
         },
     },
     computed: {
-        bangsusAppVersionComputed() {
-            return 'v' + this.bangsusAppVersion
+        appVersionComputed() {
+            return 'v' + this.appVersion
         },
         laravelVersionComputed() {
             return 'v' + this.laravelVersion
