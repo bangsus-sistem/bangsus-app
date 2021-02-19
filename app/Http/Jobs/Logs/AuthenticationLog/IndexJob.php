@@ -15,16 +15,19 @@ class IndexJob extends Job
      */
     public function handle(IndexRequest $request)
     {
+        $meta = $this->parseMeta($request);
+
         return new AuthenticationLogPaginatedCollection(
-            AuthenticationLogRepository::index(
+            AuthenticationLog::where(
                 $this->buildWhere()
                     ->with($request)
                     ->index('user_id')->mode('id')
                     ->index('ip_address')->mode('string')
                     ->index('state')->mode('boolean')
-                    ->done(),
-                $this->parseMeta($request)
+                    ->done()
             )
+                ->orderBy($meta->sort, $meta->order)
+                ->paginate($meta->count)
         );
     }
 }

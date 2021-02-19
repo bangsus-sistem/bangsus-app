@@ -5,7 +5,7 @@ namespace App\Http\Jobs\Logs\AuthenticationLog;
 use App\Abstracts\Http\Job;
 use App\Http\Requests\Logs\AuthenticationLog\StoreRequest;
 use App\Transformers\Resources\RelatedResources\Logs\AuthenticationLogRelatedResource;
-use App\Database\Repositories\Logs\AuthenticationLogRepository;
+use App\Database\Models\Logs\AuthenticationLog;
 
 class StoreJob extends Job
 {
@@ -16,12 +16,12 @@ class StoreJob extends Job
      */
     public function handle(StoreRequest $request, bool $state = true)
     {
-        return new AuthenticationLogRelatedResource(
-            AuthenticationLogRepository::create([
-                'user_id' => $user->id,
-                'ip_address' => $request->ip(),
-                'state' => $state,
-            ])
-        );
+        $authenticationLog = new AuthenticationLog;
+        $authenticationLog->user_id = $request->input('user_id');
+        $authenticationLog->ip_address = $request->input('ip_address');
+        $authenticationLog->state = $request->input('state');
+        $authenticationLog->save();
+
+        return new AuthenticationLogRelatedResource($authenticationLog);
     }
 }
