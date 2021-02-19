@@ -5,7 +5,10 @@ namespace App\Http\Jobs\Auth\Role;
 use App\Abstracts\Http\Job;
 use App\Http\Requests\Auth\Role\ActivateRequest;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
-use App\Database\Repositories\Auth\RoleRepository;
+use App\Database\Models\Auth\{
+    Role,
+    RoleFeature,
+};
 
 class ActivateJob extends Job
 {
@@ -16,8 +19,10 @@ class ActivateJob extends Job
      */
     public function handle(ActivateRequest $request, bool $active = true)
     {
-        return new RoleRelatedResource(
-            RoleRepository::activate($request->input('id'), $active)
-        );
+        $role = Role::findOrFail($request->input('id'));
+        $role->active = $active;
+        $role->save();
+
+        return new RoleRelatedResource($role);
     }
 }

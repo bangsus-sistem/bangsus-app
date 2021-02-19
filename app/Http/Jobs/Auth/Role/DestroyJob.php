@@ -5,7 +5,10 @@ namespace App\Http\Jobs\Auth\Role;
 use App\Abstracts\Http\Job;
 use App\Http\Requests\Auth\Role\DestroyRequest;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
-use App\Database\Repositories\Auth\RoleRepository;
+use App\Database\Models\Auth\{
+    Role,
+    RoleFeature,
+};
 
 class DestroyJob extends Job
 {
@@ -15,12 +18,12 @@ class DestroyJob extends Job
      */
     public function handle(DestroyRequest $request)
     {
-        if ($request->input('bulk')) {
-            foreach ($request->input('selected_ids') as $id) {
-                RoleRepository::destroy($id);
-            }
-        } else {
-            RoleRepository::destroy($request->input('id'));
-        }
+        $this->transaction(function () use ($request) {
+            $ids = $request->boolean('bulk')
+                ?   $request->input('selected_ids')
+                :   [$request->input('id')];
+            RoleFeature::whereIn('role_id', $ids)->delete();
+            Role::destroy($ids);
+        });
     }
 }

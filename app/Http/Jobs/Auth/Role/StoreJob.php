@@ -5,7 +5,10 @@ namespace App\Http\Jobs\Auth\Role;
 use App\Abstracts\Http\Job;
 use App\Http\Requests\Auth\Role\StoreRequest;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
-use App\Database\Repositories\Auth\RoleRepository;
+use App\Database\Models\Auth\{
+    Role,
+    RoleFeature,
+};
 
 class StoreJob extends Job
 {
@@ -15,14 +18,23 @@ class StoreJob extends Job
      */
     public function handle(StoreRequest $request)
     {
-        return new RoleRelatedResource(
-            RoleRepository::create([
-                'code' => $request->input('code'),
-                'name' => $request->input('name'),
-                'active' => $request->boolean('active', true),
-                'note' => $request->input('note', ''),
-                'feature_ids' => $request->input('feature_ids', []),
-            ])
-        );
+        $role = new Role;
+        $this->transaction(function () use ($role, $request) {
+            $role->code = $request->input('code');
+            $role->name = $request->input('name');
+            $role->active = $request->input('active');
+            $role->note = $request->input('note');
+            $role->save();
+
+            foreach ($request->input('feature_ids') as $featureId) {
+                $roleFeature = new RoleFeature;
+                $roleFeature->role_id = $role->id;
+                $roleFeature->feature_id = $featureId;
+                $roleFeature->access = true;
+                $roleFeature->save();
+            }
+        });
+
+        return new RoleRelatedResource($role);
     }
 }

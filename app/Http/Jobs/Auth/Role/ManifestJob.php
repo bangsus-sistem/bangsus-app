@@ -5,7 +5,7 @@ namespace App\Http\Jobs\Auth\Role;
 use App\Abstracts\Http\Job;
 use Illuminate\Http\Request;
 use App\Transformers\Collections\PaginatedCollections\Auth\RolePaginatedCollection;
-use App\Database\Repositories\Auth\RoleRepository;
+use App\Database\Models\Auth\Role;
 
 class ManifestJob extends Job
 {
@@ -15,6 +15,6 @@ class ManifestJob extends Job
      */
     public function handle(Request $request)
     {
-        return new RoleSwiftCollection(RoleRepository::all());
+        return Role::all();
     }
 }
