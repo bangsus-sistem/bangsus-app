@@ -12,7 +12,6 @@ use App\Http\Requests\Logs\AuthenticationLog\{
     DestroyRequest,
 };
 use App\Http\Jobs\Logs\AuthenticationLog\{
-    ManifestJob,
     IndexJob,
     ShowJob,
     StoreJob,
@@ -21,16 +20,6 @@ use App\Http\Jobs\Logs\AuthenticationLog\{
 
 class AuthenticationLogController extends Controller
 {
-    /**
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function manifest(Request $request)
-    {
-        return $this->buildJsonResponse()
-            ->success($this->dispatch(new ManifestJob), $request);
-    }
-
     /**
      * @param  \App\Http\Requests\Logs\AuthenticationLog\IndexRequest  $request
      * @return \Illuminate\Http\Response
