@@ -7,6 +7,8 @@ use App\Utils\Database\{
     MetaParser,
 };
 use Illuminate\Http\Request;
+use Closure;
+use Illuminate\Support\Facades\DB;
 
 abstract class Job
 {
@@ -35,5 +37,23 @@ abstract class Job
     protected function parseMeta(Request $request)
     {
         return MetaParser::parse($request);
+    }
+
+    /**
+     * @param  \Closure
+     * @return mixed
+     */
+    protected function transaction(Closure $closure)
+    {
+        return DB::transaction($closure);
+    }
+
+    /**
+     * @param  array  $data
+     * @return Object
+     */
+    protected function objectify(array $data)
+    {
+        return (object) $data;
     }
 }
