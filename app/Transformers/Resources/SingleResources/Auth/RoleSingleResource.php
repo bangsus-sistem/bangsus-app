@@ -18,6 +18,7 @@ class RoleSingleResource extends SingleResource
             'name' => $this->name,
             'active' => $this->active,
             'note' => $this->note,
+            'role_features' => new RoleFeatureSwiftCollection($this->roleFeatures),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'deleted_at' => $this->deleted_at,
