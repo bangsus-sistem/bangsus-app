@@ -23,6 +23,10 @@ class Kernel
             /**
              * Foreign Blueprints.
              */
+            'action' => Database\Blueprints\Foreigns\ActionBlueprint::class,
+            'feature' => Database\Blueprints\Foreigns\FeatureBlueprint::class,
+            'module' => Database\Blueprints\Foreigns\ModuleBlueprint::class,
+            'package' => Database\Blueprints\Foreigns\PackageBlueprint::class,
             'role' => Database\Blueprints\Foreigns\RoleBlueprint::class,
             'user' => Database\Blueprints\Foreigns\UserBlueprint::class,
             'userCreate' => Database\Blueprints\Foreigns\UserCreateBlueprint::class,
@@ -39,6 +43,7 @@ class Kernel
             'name' => Database\Blueprints\Strings\NameBlueprint::class,
             'note' => Database\Blueprints\Strings\NoteBlueprint::class,
             'password' => Database\Blueprints\Strings\PasswordBlueprint::class,
+            'ref' => Database\Blueprints\Strings\RefBlueprint::class,
             'token' => Database\Blueprints\Strings\TokenBlueprint::class,
             'username' => Database\Blueprints\Strings\UsernameBlueprint::class,
 
