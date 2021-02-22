@@ -15,9 +15,6 @@ class DestroyJob extends Job
      */
     public function handle(DestroyRequest $request)
     {
-        $ids = $request->boolean('bulk')
-                ?   $request->input('selected_ids')
-                :   [$request->input('id')];
-        AuthenticationLog::destroy($ids);
+        AuthenticationLog::destroy($request->getBulk('id'));
     }
 }

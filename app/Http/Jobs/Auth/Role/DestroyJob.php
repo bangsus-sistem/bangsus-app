@@ -19,9 +19,7 @@ class DestroyJob extends Job
     public function handle(DestroyRequest $request)
     {
         $this->transaction(function () use ($request) {
-            $ids = $request->boolean('bulk')
-                ?   $request->input('selected_ids')
-                :   [$request->input('id')];
+            $ids = $request->getBulk('id');
             RoleFeature::whereIn('role_id', $ids)->delete();
             Role::destroy($ids);
         });
