@@ -6,6 +6,10 @@ use App\Abstracts\Http\Job;
 use App\Http\Requests\Logs\AuthenticationLog\StoreRequest;
 use App\Transformers\Resources\RelatedResources\Logs\AuthenticationLogRelatedResource;
 use App\Database\Models\Logs\AuthenticationLog;
+use App\Http\Services\{
+    LoginService,
+    LogoutService,
+};
 
 class StoreJob extends Job
 {
@@ -16,6 +20,13 @@ class StoreJob extends Job
      */
     public function handle(StoreRequest $request, bool $state = true)
     {
+        $this->transmit(
+            $state
+                ? new LoginService
+                : new LogoutService,
+            $request
+        );
+
         $authenticationLog = new AuthenticationLog;
         $authenticationLog->user_id = $request->input('user_id');
         $authenticationLog->ip_address = $request->input('ip_address');
