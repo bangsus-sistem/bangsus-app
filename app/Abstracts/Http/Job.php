@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 abstract class Job
 {
     /**
-     * @param  \Illuminate\Http\Requests  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
     abstract public function handle($request);
@@ -55,5 +55,16 @@ abstract class Job
     protected function objectify(array $data)
     {
         return (object) $data;
+    }
+
+    /**
+     * @param  \App\Abstracts\Http\Service  $service
+     * @param  \Illuminate\Http\Request  $request
+     * @param  ...  $args
+     * @return mixed
+     */
+    protected function transmit(Service $service, $request, ...$args)
+    {
+        return $service->manage($request, ...$args);
     }
 }
