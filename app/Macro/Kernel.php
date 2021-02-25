@@ -63,6 +63,7 @@ class Kernel
     public static $support = [
         'str' => [
             'snakeDotToPascalBackslash' => Support\Str\SnakeDotToPascalBackslash::class,
+            'pluralSnake' => Support\Str\PluralSnake::class,
         ],
     ];
 }
