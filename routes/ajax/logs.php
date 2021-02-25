@@ -20,3 +20,12 @@ Route::prefix('authentication_log')->group(function () {
 Route::prefix('request_method')->group(function () {
     Route::get('all', 'RequestMethodController@manifest');
 });
+
+/**
+ * @package  \App\Http\Controllers\Ajax\Logs\FeatureLogController
+ */
+Route::prefix('feature_log')->group(function () {
+    Route::get('', 'FeatureLogController@index');
+    Route::get('{id}', 'FeatureLogController@show');
+    Route::delete('', 'FeatureLogController@destroy');
+});
