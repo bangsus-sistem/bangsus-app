@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Str;
 use App\Macro\Kernel;
 use App\Contracts\Macro\Database\BlueprintContract;
+use App\Contracts\Macro\Support\StrContract;
 use LogicException;
 
 class MacroServiceProvider extends ServiceProvider
@@ -64,6 +66,29 @@ class MacroServiceProvider extends ServiceProvider
                     ])
                 );
             }
+        }
+    }
+
+    /**
+     * @return void
+     */
+    private function registerSupportMacro()
+    {
+        $this->registerStrMacro();
+    }
+
+    /**
+     * @return void
+     */
+    private function registerStrMacro()
+    {
+        $strMacros = Kernel::$support['str'];
+
+        foreach ($strMacros as $methodName => $str) {
+            if ( ! (new $str) instanceof StrContract)
+                throw new LogicException('Str macro: '.$str.' must implements '.StrContract::class);
+
+            Str::macro($methodName, call_user_func([$str, StrContract::MAIN_METHOD]));
         }
     }
 }
