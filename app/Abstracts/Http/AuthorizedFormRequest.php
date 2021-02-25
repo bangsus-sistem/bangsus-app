@@ -69,7 +69,10 @@ class AuthorizedFormRequest extends FormRequest
      * 
      * @return void
      */
-    protected function afterValidation() {   }
+    protected function afterValidation()
+    {
+        //
+    }
 
     /**
      * Get the rule class name based on dotted, snake case name.
@@ -79,8 +82,6 @@ class AuthorizedFormRequest extends FormRequest
      */
     private function getRuleClassName($ruleDottedNamespace)
     {
-        $explodedRuleDottedNamespace = explode('.', $ruleDottedNamespace);
-
         return Str::snakeDotToPascalBackslash($ruleDottedNamespace,
             fn ($ruleNamespace) => '\App\Http\Validation\Rules\\'.$ruleNamespace
         );

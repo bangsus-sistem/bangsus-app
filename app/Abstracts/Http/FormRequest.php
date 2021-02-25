@@ -56,6 +56,6 @@ class FormRequest extends BaseFormRequest
      */
     final protected function fieldNameToBulk(string $field) : string
     {
-        return Str::snake(Str::pluralStudly(Str::studly($field)));
+        return Str::pluralSnake($field);
     }
 }
