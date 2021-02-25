@@ -3,7 +3,6 @@
 namespace App\Http\Jobs\Logs\AuthenticationLog;
 
 use App\Abstracts\Http\Job;
-use App\Http\Requests\Logs\AuthenticationLog\ShowRequest;
 use App\Transformers\Resources\RelatedResources\Logs\AuthenticationLogRelatedResource;
 use App\Database\Models\Logs\AuthenticationLog;
 
@@ -11,10 +10,10 @@ class ShowJob extends Job
 {
     /**
      * @param  \App\Http\Requests\Logs\AuthenticationLog\ShowRequest  $request
-     * @param  int|null  $id
+     * @param  int  $id
      * @return \App\Transformers\Resources\RelatedResources\Logs\AuthenticationLogRelatedResource
      */
-    public function handle(ShowRequest $request, ?int $id = null)
+    public function handle($request, int $id = 0)
     {
         return new AuthenticationLogRelatedResource(
             AuthenticationLog::findOrFail($id)

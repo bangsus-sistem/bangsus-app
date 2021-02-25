@@ -3,7 +3,6 @@
 namespace App\Http\Jobs\Auth\Role;
 
 use App\Abstracts\Http\Job;
-use App\Http\Requests\Auth\Role\DestroyRequest;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
 use App\Database\Models\Auth\{
     Role,
@@ -16,7 +15,7 @@ class DestroyJob extends Job
      * @param  \App\Http\Requests\Auth\Role\DestroyRequest  $request
      * @return void
      */
-    public function handle(DestroyRequest $request)
+    public function handle($request)
     {
         $this->transaction(function () use ($request) {
             $ids = $request->getBulk('id');

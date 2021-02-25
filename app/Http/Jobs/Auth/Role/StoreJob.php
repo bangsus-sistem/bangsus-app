@@ -3,7 +3,6 @@
 namespace App\Http\Jobs\Auth\Role;
 
 use App\Abstracts\Http\Job;
-use App\Http\Requests\Auth\Role\StoreRequest;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
 use App\Database\Models\Auth\{
     Role,
@@ -16,7 +15,7 @@ class StoreJob extends Job
      * @param  \App\Http\Requests\Auth\Role\StoreRequest  $request
      * @return \App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource
      */
-    public function handle(StoreRequest $request)
+    public function handle($request)
     {
         $role = new Role;
         $this->transaction(function () use ($role, $request) {

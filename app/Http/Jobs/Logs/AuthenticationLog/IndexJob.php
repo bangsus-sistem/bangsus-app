@@ -3,7 +3,6 @@
 namespace App\Http\Jobs\Logs\AuthenticationLog;
 
 use App\Abstracts\Http\Job;
-use App\Http\Requests\Logs\AuthenticationLog\IndexRequest;
 use App\Transformers\Collections\PaginatedCollections\Logs\AuthenticationLogPaginatedCollection;
 use App\Database\Repositories\Logs\AuthenticationLogRepository;
 
@@ -13,7 +12,7 @@ class IndexJob extends Job
      * @param  \App\Http\Requests\Logs\AuthenticationLog\IndexRequest  $request
      * @return \App\Transformers\Collections\PaginatedCollections\Logs\AuthenticationLogPaginatedCollection
      */
-    public function handle(IndexRequest $request)
+    public function handle($request)
     {
         $meta = $this->parseMeta($request);
 

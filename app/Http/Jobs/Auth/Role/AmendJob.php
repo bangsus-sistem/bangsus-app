@@ -3,7 +3,6 @@
 namespace App\Http\Jobs\Auth\Role;
 
 use App\Abstracts\Http\Job;
-use App\Http\Requests\Auth\Role\AmendRequest;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
 use App\Database\Models\Auth\{
     Role,
@@ -16,7 +15,7 @@ class AmendJob extends Job
      * @param  \App\Http\Requests\Auth\Role\AmendRequest  $request
      * @return \App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource
      */
-    public function handle(AmendRequest $request)
+    public function handle($request)
     {
         $role = Role::findOrFail($request->input('id'));
         $this->transaction(function () use ($role, $request) {
