@@ -11,7 +11,6 @@ Route::prefix('role')->group(function () {
     Route::get('{id}', 'RoleController@show');
     Route::post('', 'RoleController@store');
     Route::put('', 'RoleController@amend');
-    Route::patch('activate', 'RoleController@reviseActivate');
-    Route::patch('deactivate', 'RoleController@reviseDeactivate');
+    Route::patch('activation', 'RoleController@reviseActivation');
     Route::delete('', 'RoleController@destroy');
 });

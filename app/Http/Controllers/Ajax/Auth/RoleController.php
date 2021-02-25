@@ -79,20 +79,10 @@ class RoleController extends Controller
      * @param  \App\Http\Requests\Auth\Role\ActivationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function reviseActivate(ActivationRequest $request)
+    public function reviseActivation(ActivationRequest $request)
     {
         return $this->buildJsonResponse()
-            ->success($this->dispatch(new ActivationJob, $request, true));
-    }
-
-    /**
-     * @param  \App\Http\Requests\Auth\Role\ActivationRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function reviseDeactivate(ActivationRequest $request)
-    {
-        return $this->buildJsonResponse()
-            ->success($this->dispatch(new ActivationJob, $request, false));
+            ->success($this->dispatch(new ActivationJob, $request));
     }
 
     /**
