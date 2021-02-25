@@ -4,7 +4,7 @@ namespace App\Transformers\Resources\SingleResources\Auth;
 
 use App\Abstracts\Transformers\Resources\SingleResource;
 
-class UserSingleResource extends SingleResource
+class AuthenticationTokenSingleResource extends SingleResource
 {
     /**
      * @param  \Illuminate\Http\Request  $request

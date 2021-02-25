@@ -3,12 +3,9 @@
 namespace App\Transformers\Resources\RelatedResources\Auth;
 
 use App\Abstracts\Transformers\RelatedResource;
-use App\Transformers\Resources\SingleResources\Auth\{
-    RoleSingleResource,
-    UserSingleResource,
-};
+use App\Transformers\Resources\SingleResources\Auth\UserSingleResource;
 
-class UserRelatedResource extends RelatedResource
+class AuthenticationTokenRelatedResource extends RelatedResource
 {
     /**
      * @param  \Illuminate\Http\Request  $request
