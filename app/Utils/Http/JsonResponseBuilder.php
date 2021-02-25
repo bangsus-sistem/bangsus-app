@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Libs\Http;
+namespace App\Utils\Http;
 
 class JsonResponseBuilder
 {
