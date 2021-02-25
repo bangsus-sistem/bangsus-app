@@ -10,3 +10,10 @@ Route::prefix('authentication_log')->group(function () {
     Route::get('{id}', 'AuthenticationLogController@show');
     Route::delete('', 'AuthenticationLogController@destroy');
 });
+
+/**
+ * @package  \App\Http\Controllers\Ajax\Logs\RequestMethodController
+ */
+Route::prefix('request_method')->group(function () {
+    Route::get('all', 'RequestMethodController@manifest');
+});
