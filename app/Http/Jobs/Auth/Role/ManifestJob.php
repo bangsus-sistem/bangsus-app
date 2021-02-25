@@ -10,7 +10,7 @@ class ManifestJob extends Job
 {
     /**
      * @param  \Illuminate\Http\Request  $request
-     * @return \App\Transformers\Collections\PaginatedCollections\Auth\RolePaginatedCollection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function handle($request)
     {
