@@ -3,7 +3,6 @@
 namespace App\Http\Services;
 
 use App\Abstracts\Http\Service;
-use App\Http\Requests\Auth\Logs\AuthenticationLog\StoreLoginRequest;
 use App\Database\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Exceptions\{
@@ -19,7 +18,7 @@ class LoginService extends Service
      * @throws \App\Exceptions\UserInactiveException
      * @return void
      */
-    public function manage(StoreLoginRequest $request)
+    public function manage($request)
     {
         $user = User::where('username', $request->input('username'))->sole();
 
