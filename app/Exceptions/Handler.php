@@ -36,5 +36,20 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(
+            function (UserInactiveException $e, $request) {
+                return response()->json([
+                    'message' => __('messages.authentication.inactive'),
+                ], 401);
+            }
+        );
+        $this->renderable(
+            function (FailedLoginException $e, $request) {
+                return response()->json([
+                    'message' => __('messages.authentication.failed'),
+                ], 401);
+            }
+        );
     }
 }
