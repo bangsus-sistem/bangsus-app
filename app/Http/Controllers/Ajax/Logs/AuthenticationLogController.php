@@ -17,6 +17,10 @@ use App\Http\Jobs\Logs\AuthenticationLog\{
     StoreJob,
     DestroyJob,
 };
+use App\Http\Services\{
+    LoginService,
+    LogoutService,
+};
 
 class AuthenticationLogController extends Controller
 {
@@ -47,6 +51,8 @@ class AuthenticationLogController extends Controller
      */
     public function storeLogin(StoreLoginRequest $request)
     {
+        $this->transmit(new LoginService, $request);
+
         return $this->buildJsonResponse()
             ->success($this->dispatch(new StoreJob, $request, true));
     }
@@ -57,6 +63,8 @@ class AuthenticationLogController extends Controller
      */
     public function storeToken(StoreTokenRequest $request)
     {
+        $this->transmit(new LoginService, $request);
+        
         return $this->buildJsonResponse()
             ->success($this->dispatch(new StoreJob, $request, true));
     }
@@ -67,6 +75,8 @@ class AuthenticationLogController extends Controller
      */
     public function storeLogout(Request $request)
     {
+        $this->transmit(new LogoutService, $request);
+        
         return $this->buildJsonResponse()
             ->success($this->dispatch(new StoreJob, $request, false));
     }

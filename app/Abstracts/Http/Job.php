@@ -56,15 +56,4 @@ abstract class Job
     {
         return (object) $data;
     }
-
-    /**
-     * @param  \App\Abstracts\Http\Service  $service
-     * @param  \Illuminate\Http\Request  $request
-     * @param  ...  $args
-     * @return mixed
-     */
-    protected function transmit(Service $service, $request, ...$args)
-    {
-        return $service->manage($request, ...$args);
-    }
 }

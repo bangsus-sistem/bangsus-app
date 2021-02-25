@@ -24,6 +24,17 @@ abstract class Controller extends BaseController
     }
 
     /**
+     * @param  \App\Abstracts\Http\Service  $service
+     * @param  \Illuminate\Http\Request  $request
+     * @param  ...  $args
+     * @return mixed
+     */
+    protected function transmit(Service $service, $request, ...$args)
+    {
+        return $service->manage($request, ...$args);
+    }
+
+    /**
      * @return \App\Utils\Http\JsonResponseBuilder
      */
     protected function buildJsonResponse()
