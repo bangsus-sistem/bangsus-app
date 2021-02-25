@@ -10,7 +10,7 @@ use App\Database\Models\Auth\{
     RoleFeature,
 };
 
-class ActivateJob extends Job
+class ActivationJob extends Job
 {
     /**
      * @param  \App\Http\Requests\Auth\Role\ActivateRequest  $request
@@ -20,7 +20,7 @@ class ActivateJob extends Job
     public function handle(ActivateRequest $request, bool $active = true)
     {
         $role = Role::findOrFail($request->input('id'));
-        $role->active = $active;
+        $role->active = $request->input('active');
         $role->save();
 
         return new RoleRelatedResource($role);
