@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Auth\Role;
+namespace App\Http\Requests\Auth\AuthenticationLog;
 
 use App\Abstracts\Http\AuthorizedFormRequest;
 use App\Utils\Http\BulkActionAfterHandler;
