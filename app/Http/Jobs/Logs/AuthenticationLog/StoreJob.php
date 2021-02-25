@@ -28,7 +28,7 @@ class StoreJob extends Job
 
         $authenticationLog = new AuthenticationLog;
         $authenticationLog->user_id = $request->input('user_id');
-        $authenticationLog->ip_address = $request->input('ip_address');
+        $authenticationLog->ip_address = $request->ip();
         $authenticationLog->state = $request->input('state');
         $authenticationLog->save();
 
