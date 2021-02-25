@@ -4,10 +4,7 @@ namespace App\Http\Jobs\Auth\Role;
 
 use App\Abstracts\Http\Job;
 use App\Transformers\Resources\RelatedResources\Auth\RoleRelatedResource;
-use App\Database\Models\Auth\{
-    Role,
-    RoleFeature,
-};
+use App\Database\Models\Auth\Role;
 
 class ActivationJob extends Job
 {
