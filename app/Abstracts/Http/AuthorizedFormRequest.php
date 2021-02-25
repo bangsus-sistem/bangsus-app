@@ -12,7 +12,7 @@ class AuthorizedFormRequest extends FormRequest
      * 
      * @var string
      */
-    protected $unauthorizedMessage = 'Anda tidak memiliki otoritas';
+    protected $unauthorizedMessage = 'messages.authorization.failed';
     
     /**
      * Automatically authorize every request.
@@ -35,7 +35,7 @@ class AuthorizedFormRequest extends FormRequest
      */
     protected function failedAuthorization()
     {
-        throw new AuthorizationException($this->unauthorizedMessage);
+        throw new AuthorizationException(__($this->unauthorizedMessage));
     }
 
     /**
